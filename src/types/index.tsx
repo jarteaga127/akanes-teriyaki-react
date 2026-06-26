@@ -6,6 +6,7 @@ export interface BookingDetails {
     date: string;
     time: string;
     guests: number;
+    seatType: string;
 }
 
 export interface TimeSlot {
