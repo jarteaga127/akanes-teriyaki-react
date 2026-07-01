@@ -1,17 +1,18 @@
+import { Link } from "react-router-dom";
 import "../styles/nav-bar.css"
 
 const Navbar = () => {
     return ( 
         <nav>
-            <div className="site-logo"><header>Akane's Teriyaki</header></div>
+            <div className="site-logo"><header><Link to="/">Akane's Teriyaki</Link></header></div>
             <div className="nav-link-group">
             <ul>
-                <li>Home</li>
-                <li>Our Menu</li>
-                <li>Book a table</li>
-                <li>Order online</li>
-                <li>About us</li>
-                <li>Contact us</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Our Menu</Link></li>
+                <li><Link to="/">Book a table</Link></li>
+                <li><Link to="/">Order online</Link></li>
+                <li><Link to="/">About us</Link></li>
+                <li><Link to="/">Contact us</Link></li>
             </ul>
             </div>
         </nav>

@@ -1,0 +1,14 @@
+.hero-sec {
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.hero-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+justify-content: end;
+text-align: end;
+padding: .5rem 1rem;
+}

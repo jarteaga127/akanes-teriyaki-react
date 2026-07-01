@@ -6,6 +6,7 @@ width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
+z-index: 999;
 }
 
 .nav-link-group ul {
