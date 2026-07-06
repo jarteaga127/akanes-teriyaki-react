@@ -5,11 +5,19 @@
   border: 1px solid;
 }
 
-button {
-  
+section {
+  padding: .75rem 1.25rem 2rem;
 }
 
 .link-001 {
 padding: .5rem 1rem;
   border: none;  
+}
+
+.section-img {
+  width: 50%;
+}
+
+.section-text {
+  width: 50%;
 }
