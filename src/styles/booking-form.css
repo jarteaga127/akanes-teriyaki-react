@@ -1,0 +1,8 @@
+label, input {
+  padding: .5rem 1rem;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}

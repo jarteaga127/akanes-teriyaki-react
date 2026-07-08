@@ -10,9 +10,23 @@ section, footer {
   padding: .75rem 1.25rem 2rem;
 }
 
+section {
+  margin-top: 72px;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .link-001 {
 padding: .5rem 1rem;
-  border: none;  
+  border: none; 
+  cursor: pointer; 
 }
 
 .section-img {

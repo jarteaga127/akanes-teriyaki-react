@@ -1,11 +1,13 @@
 import BookingForm from "../components/BookingForm";
+import { Link } from "react-router-dom";
 
 const BookingPage = () => {
     return ( 
-        <main>
+        <section>
             <h1>Let's get a table!</h1>
             <BookingForm/>
-        </main>
+<Link to="/" className="link-001">Back to home</Link>
+        </section>
      );
 }
  

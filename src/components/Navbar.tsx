@@ -8,8 +8,8 @@ const Navbar = () => {
             <div className="nav-link-group">
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/">Our Menu</Link></li>
-                <li><Link to="/">Book a table</Link></li>
+                <li><Link to="/our-menu">Our Menu</Link></li>
+                <li><Link to="/book-a-table">Book a table</Link></li>
                 <li><Link to="/">Order online</Link></li>
                 <li><Link to="/">About us</Link></li>
                 <li><Link to="/">Contact us</Link></li>
