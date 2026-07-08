@@ -6,7 +6,7 @@
   background-color: white;
 }
 
-section {
+section, footer {
   padding: .75rem 1.25rem 2rem;
 }
 

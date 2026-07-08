@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/footer.css"
 
 const Footer = () => {
     return ( 
@@ -6,7 +7,7 @@ const Footer = () => {
              <div className="footer-column">
                <dl>
                 <dt>Akane's Teriyaki Grill</dt>
-                <dd>〒123-4567 Tokyo, Nerima-ku 1-23-4 Shizuku Building</dd>
+                <dd>〒123-4567 Tokyo, Nerima-ku 1-23-4 Shizuku Building 1F</dd>
                 <dt>TEL:</dt>
                 <dd>012-3456-7890</dd>
                 <dt>OPEN</dt>
