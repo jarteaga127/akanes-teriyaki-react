@@ -11,5 +11,6 @@ export interface BookingDetails {
 
 export interface TimeSlot {
     time: string;
+    label: string;
     isAvailable: boolean;
 }

@@ -6,12 +6,15 @@
   background-color: white;
 }
 
+main {
+  padding-top: 72px;
+}
+
 section, footer {
   padding: .75rem 1.25rem 2rem;
 }
 
 section {
-  margin-top: 72px;
   height: 100vh;
 }
 

@@ -7,7 +7,10 @@ const OrderOnSec = () => {
 <div className="section-text">
     <h2>Order online</h2>
     <p>Feeling too lazy to go out? We'll bring our food to your door.</p>
-    <Link to="/" className="link-001">Order online now.</Link>
+    
+     <Link to="/" className="link-001">Order online now.</Link>   
+    
+    
 </div>
         </section>
      );

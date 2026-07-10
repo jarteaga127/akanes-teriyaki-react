@@ -7,12 +7,12 @@ const Navbar = () => {
             <div className="site-logo"><header><Link to="/">Akane's Teriyaki</Link></header></div>
             <div className="nav-link-group">
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/our-menu">Our Menu</Link></li>
-                <li><Link to="/book-a-table">Book a table</Link></li>
-                <li><Link to="/">Order online</Link></li>
-                <li><Link to="/">About us</Link></li>
-                <li><Link to="/">Contact us</Link></li>
+                <li><Link to="/" className="nav-link">Home</Link></li>
+                <li><Link to="/our-menu" className="nav-link">Our Menu</Link></li>
+                <li><Link to="/book-a-table" className="nav-link">Book a table</Link></li>
+                <li><Link to="/" className="nav-link">Order online</Link></li>
+                <li><Link to="/" className="nav-link">About us</Link></li>
+                <li><Link to="/" className="nav-link">Contact us</Link></li>
             </ul>
             </div>
         </nav>
