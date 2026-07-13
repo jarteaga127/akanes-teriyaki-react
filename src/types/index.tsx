@@ -6,11 +6,17 @@ export interface BookingDetails {
     date: string;
     time: string;
     guests: number;
-    seatType: string;
+    seat: string;
 }
 
 export interface TimeSlot {
     time: string;
+    label: string;
+    isAvailable: boolean;
+}
+
+export interface SeatType {
+    seat: string;
     label: string;
     isAvailable: boolean;
 }

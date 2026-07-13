@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { BookingDetails, TimeSlot } from "../types";
+import type { BookingDetails, SeatType, TimeSlot } from "../types";
 import "../styles/booking-form.css"
 
 const BookingForm = () => {
@@ -8,7 +8,7 @@ const [formData, setFormData] = useState<Partial<BookingDetails>>({
     guests: 0,
     date: '',
     time: '',
-    seatType: '',
+    seat: '',
 });
 
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -26,8 +26,14 @@ const timeSlots: TimeSlot[] = [
     {time: '19:00', label: '19:00', isAvailable: true},
     {time: '20:00', label: '20:00', isAvailable: true},
     {time: '21:00', label: '21:00', isAvailable: true},
-    {time: '22:00', label: '22:00', isAvailable: true}
-    
+    {time: '22:00', label: '22:00', isAvailable: false}  
+];
+
+const seatTypes: SeatType[] = [
+    {seat: 'table', label: 'table', isAvailable: true},
+    {seat: 'counter', label: 'counter', isAvailable: true},
+    {seat: 'group table', label: 'group table', isAvailable: false},
+    {seat: 'window seat', label: 'window seat', isAvailable: false}
 ]
 
     return ( 
@@ -38,7 +44,7 @@ const timeSlots: TimeSlot[] = [
                     <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} />
                     <label htmlFor="time">What time will you be coming?</label>
                     <select name="time" id="time" value={formData.time} onChange={handleInputChange} required disabled={!formData.date}>
-                        <option value="">{formData.date ? "Select a time" : "Please tell us what day you are coming first, please."}</option>
+                        <option>{formData.date ? "Select a time" : "Please tell us what day you are coming first, please."}</option>
                         {timeSlots.map((slot) => (
                             <option key={slot.time} value={slot.time} disabled={!slot.isAvailable}>
                                 {slot.label}
@@ -47,18 +53,24 @@ const timeSlots: TimeSlot[] = [
                     </select>
                     <label htmlFor="guests">How many guests are you bringing?</label>
                     <input type="number" name="guests" value={formData.guests} onChange={handleInputChange} min={0} max={10} />
-                    <label htmlFor="seatType">Do you want a counter seat or table?</label>
-                    <select name="seatType" id="" >
-                        <option value="1">Table</option>
-                        <option value="2">Counter</option>
+                    <label htmlFor="seatType">What kind of seat do you want?</label>
+                    <select name="seatType" id="seatType" value={formData.seat} onChange={handleInputChange} required disabled={!formData.guests} >
+                        <option>{formData.guests ? "Pick a seat" : "Please tell us how many people you are bringing first."} </option>
+                        {seatTypes.map((type) => (
+                            <option key={type.seat} value={type.seat} disabled={!type.isAvailable}>{type.label}</option>
+                        ))}
                     </select>
                     <button type="button" onClick={() => setStep(2)}>Next</button>
                 </div>
             )}
             {step === 2 && (
                 <div className="form-control">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Write your name here:</label>
                     <input type="text" name="name" required onChange={handleInputChange} />
+                    <label htmlFor="phone-number">Phone Number:</label>
+                    <input type="text" name="phone-number" onChange={handleInputChange}/>
+                    <label htmlFor="email">Your email:</label>
+                    <input type="text" name="email" onChange={handleInputChange} />
                     <button type="button" onClick={() => setStep(1)}>Go back</button>
                     <button type="submit"> Confirm your reservation.</button>
                 </div>
