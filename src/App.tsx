@@ -1,5 +1,6 @@
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
+import ScrollToTop from "./components/ScrollToTop"
 import BookingPage from "./pages/BookingPage"
 import HomePage from "./pages/HomePage"
 import OurMenu from "./pages/OurMenu"
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar/>
       <main>
+        <ScrollToTop/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/our-menu" element={<OurMenu/>} />
