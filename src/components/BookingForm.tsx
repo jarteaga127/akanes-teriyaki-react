@@ -4,22 +4,46 @@ import "../styles/booking-form.css"
 
 const BookingForm = () => {
 const [step, setStep] = useState(1);
-const [formData, setFormData] = useState<Partial<BookingDetails>>({
+const [formData, setFormData] = useState<BookingDetails>({
     guests: 0,
     date: '',
     time: '',
     seat: '',
+    name: '',
+    phone: '',
+    email: '',
+    id: ''
 });
 
-const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const {name, value} = e.target;
+    setFormData((prev) => ({
+        ...prev, [name]: name === 'guests' ? parseInt(value, 10) : value,
+    }))
 };
 
 const handleSubmit = (e: React.SubmitEvent) => {
 e.preventDefault();
+
+//This will build a mock id and build a final reservation object
+const finalBooking: BookingDetails = {
+    ...formData,
+    id: `bk-${Math.random().toString(36).substring(2, 9)}`,
+};
+
+//Pull available bookings from local storage or create an empty array if none exist
+const availBookings = JSON.parse(localStorage.getItem('restaurant_bookings') || '[]')
 console.log("Thank you. Your table has been set.", formData);
 setStep(3);
+
+availBookings.push(finalBooking);
+
+localStorage.setItem('restaurant_bookings', JSON.stringify(availBookings));
+
+alert(`Thank you. Your table has been set. Your booking number is ${finalBooking.id}. We look forward to meeting you.`)
 }
+
+
 
 const timeSlots: TimeSlot[] = [
     {time: '18:00', label: '18:00', isAvailable: true},
@@ -41,7 +65,7 @@ const seatTypes: SeatType[] = [
             {step === 1 && (
                 <div className="form-control">
                     <label htmlFor="date">What day will you be coming?</label>
-                    <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} />
+                    <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} required/>
                     <label htmlFor="time">What time will you be coming?</label>
                     <select name="time" id="time" value={formData.time} onChange={handleInputChange} required disabled={!formData.date}>
                         <option>{formData.date ? "Select a time" : "Please tell us what day you are coming first, please."}</option>
@@ -67,8 +91,8 @@ const seatTypes: SeatType[] = [
                 <div className="form-control">
                     <label htmlFor="name">Write your name here:</label>
                     <input type="text" name="name" required onChange={handleInputChange} />
-                    <label htmlFor="phone-number">Phone Number:</label>
-                    <input type="text" name="phone-number" onChange={handleInputChange}/>
+                    <label htmlFor="phone">Phone Number:</label>
+                    <input type="text" name="phone" onChange={handleInputChange}/>
                     <label htmlFor="email">Your email:</label>
                     <input type="text" name="email" onChange={handleInputChange} />
                     <button type="button" onClick={() => setStep(1)}>Go back</button>
