@@ -22,6 +22,9 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectEle
     }))
 };
 
+const nextStep = () => setStep(prev => prev + 1);
+const prevStep = () => setStep(prev => prev - 1);
+
 const handleSubmit = (e: React.SubmitEvent) => {
 e.preventDefault();
 
@@ -33,14 +36,12 @@ const finalBooking: BookingDetails = {
 
 //Pull available bookings from local storage or create an empty array if none exist
 const availBookings = JSON.parse(localStorage.getItem('restaurant_bookings') || '[]')
-console.log("Thank you. Your table has been set.", formData);
-setStep(3);
 
 availBookings.push(finalBooking);
 
 localStorage.setItem('restaurant_bookings', JSON.stringify(availBookings));
 
-alert(`Thank you. Your table has been set. Your booking number is ${finalBooking.id}. We look forward to meeting you.`)
+setStep(4);
 }
 
 
@@ -62,6 +63,11 @@ const seatTypes: SeatType[] = [
 
     return ( 
         <form onSubmit={handleSubmit}>
+        <div className="step-indicator">
+            <span className={step >= 1 ? 'active' : ''}>1. Pick a date and table</span>
+        <span className={step >= 2 ? 'active' : ''}>2. How can we contact you?</span>
+        <span className={step >= 3 ? 'active' : ''}>3. Review your booking</span>
+        </div>
             {step === 1 && (
                 <div className="form-control">
                     <label htmlFor="date">What day will you be coming?</label>
@@ -78,13 +84,13 @@ const seatTypes: SeatType[] = [
                     <label htmlFor="guests">How many guests are you bringing?</label>
                     <input type="number" name="guests" value={formData.guests} onChange={handleInputChange} min={0} max={10} />
                     <label htmlFor="seatType">What kind of seat do you want?</label>
-                    <select name="seatType" id="seatType" value={formData.seat} onChange={handleInputChange} required disabled={!formData.guests} >
+                    <select name="seatType" id="seatType" value={formData.seat} onChange={handleInputChange} required >
                         <option>{formData.guests ? "Pick a seat" : "Please tell us how many people you are bringing first."} </option>
                         {seatTypes.map((type) => (
                             <option key={type.seat} value={type.seat} disabled={!type.isAvailable}>{type.label}</option>
                         ))}
                     </select>
-                    <button type="button" onClick={() => setStep(2)}>Next</button>
+                    <button type="button" onClick={nextStep} disabled={!formData.date || !formData.time}>Next</button>
                 </div>
             )}
             {step === 2 && (
@@ -95,10 +101,44 @@ const seatTypes: SeatType[] = [
                     <input type="text" name="phone" onChange={handleInputChange}/>
                     <label htmlFor="email">Your email:</label>
                     <input type="text" name="email" onChange={handleInputChange} />
-                    <button type="button" onClick={() => setStep(1)}>Go back</button>
-                    <button type="submit"> Confirm your reservation.</button>
+                    <button type="button" onClick={prevStep}>Go back</button>
+                    <button type="button" onClick={nextStep}> Confirm your reservation.</button>
                 </div>
             )}
+            {step === 3 && (
+                <div className="review-booking">
+                    <h3>Review Your Reservation Details</h3>
+            <p>Please make sure everything looks correct before confirming.</p>
+            
+            <div className="review-card">
+              <div className="review-row"><strong>Name:</strong> {formData.name}</div>
+              <div className="review-row"><strong>Email:</strong> {formData.email}</div>
+              <div className="review-row"><strong>Phone:</strong> {formData.phone}</div>
+              <hr />
+              <div className="review-row"><strong>Date:</strong> {formData.date}</div>
+              <div className="review-row"><strong>Time:</strong> {formData.time}</div>
+              <div className="review-row"><strong>Guests:</strong> {formData.guests}</div>
+            </div>
+            <div className="btn-group">
+              <button type="button" onClick={prevStep}>Edit Details</button>
+              {/* This button actually submits the form */}
+              <button type="submit" className="confirm-btn">Confirm & Book Table</button>
+            </div>
+          </div>
+            )}
+            {step === 4 && (
+          <div className="form-step success-step">
+            <h2>🎉 Reservation Confirmed!</h2>
+            <p>We look forward to hosting you, {formData.name}.</p>
+            <button type="button" onClick={() => {
+              // Reset state to book another
+              setFormData({ id: '', name: '', email: '', phone: '', date: '', time: '', guests: 2, seat: '' });
+              setStep(1);
+            }}>
+              Book Another Table
+            </button>
+          </div>
+        )}
         </form>
      );
 }
