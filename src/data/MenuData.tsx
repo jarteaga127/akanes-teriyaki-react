@@ -26,9 +26,9 @@ export const menuData: MenuItem[] = [
     },
     {
         id: 'm4',
-        name: "Potato Salad",
-        price: 299,
-        category: "sides"
+        name: "Teriyaki Chicken Plate",
+        price: 799,
+        category: "plates"
     },
     {
         id: 'm5',
@@ -38,45 +38,63 @@ export const menuData: MenuItem[] = [
     },
     {
         id: 'm6',
-        name: "Hawaiian Rainbow Shaved Ice",
-        price: 599,
-        category: "desserts"
+        name: "Teriyaki Chick\'n Plate (Plant-based",
+        price: 799,
+        category: "plates"
     },
     {
         id: 'm7',
+        name: "French Fries - Small",
+        price: 299,
+        category: "sides"
+    },
+    {
+        id: 'm8',
+        name: "Potato Salad",
+        price: 299,
+        category: "sides"
+    },
+    {
+        id: 'm9',
+        name: "Egg Rolls - 3 pieces",
+        price: 299,
+        category: "sides"
+    },
+    {
+        id: 'm10',
+        name: "Hawaiian Shaved Ice - Cherry",
+        price: 299,
+        category: "desserts"
+    },
+    {
+        id: 'm11',
+        name: "Ice Cream - Vanilla",
+        price: 299,
+        category: "desserts"
+    },
+    {
+        id: 'm12',
+        name: "Hawaiian Shaved Ice - Mango",
+        price: 299,
+        category: "desserts"
+    },
+    {
+        id: 'm13',
         name: "Passion Fruit Iced Tea",
         price: 299,
         category: "drinks"
     },
     {
-        id: 'm8',
-        name: "Green Tea",
+        id: 'm14',
+        name: "Green Tea - Unsweetened",
         price: 299,
         category: "drinks"
     },
     {
-        id: 'm9',
-        name: "Orange Bang",
+        id: 'm15',
+        name: "Lemonade",
         price: 299,
         category: "drinks"
-    },
-    {
-        id: 'm10',
-        name: "Grilled Short Rib Plate",
-        price: 299,
-        category: "plates"
-    },
-    {
-        id: 'm11',
-        name: "French Fries - small",
-        price: 299,
-        category: "sides"
-    },
-    {
-        id: 'm12',
-        name: "Vanilla Soft Served",
-        price: 299,
-        category: "desserts"
     },
 
 
