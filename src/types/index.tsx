@@ -20,3 +20,22 @@ export interface SeatType {
     label: string;
     isAvailable: boolean;
 }
+
+export interface Step1Props {
+    formData: BookingDetails;
+    updateFields: (fields: Partial<BookingDetails>) => void;
+    onNext: () => void;
+}
+
+export interface Step2Props {
+    formData: BookingDetails;
+    updateFields: (fields: Partial<BookingDetails>) => void;
+    onNext: () => void;
+    onBack: () => void;
+}
+
+export interface Step3Props {
+    formData: BookingDetails;
+    onConfirm: () => void;
+    onBack: () => void;
+}
