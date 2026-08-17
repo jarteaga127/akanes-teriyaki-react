@@ -1,38 +1,43 @@
 import { useState } from "react";
-import type { BookingDetails, SeatType, TimeSlot } from "../types";
+import type { BookingDetails } from "../types";
 import "../styles/booking-form.css"
+import Step1Details from "./Step1Details";
+import Step2Details from "./Step2Details";
+import Step3Details from "./Step3Details";
+import Step4Details from "./Step4Details";
 
-const BookingForm = () => {
-const [step, setStep] = useState(1);
-const [formData, setFormData] = useState<BookingDetails>({
-    guests: 0,
-    date: '',
-    time: '',
-    seat: '',
-    name: '',
-    phone: '',
-    email: '',
-    id: ''
-});
+const INITIAL_DATA: BookingDetails = {
+    id: '',
+  guests: 1,
+  date: '',
+  time: '',
+  seat: '',
+  name: '',
+  email: '',
+  phone: '',
+}
 
-const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const {name, value} = e.target;
-    setFormData((prev) => ({
-        ...prev, [name]: name === 'guests' ? parseInt(value, 10) : value,
-    }))
+const BookingForm: React.FC = () => {
+const [step, setStep] = useState<number>(1);
+const [formData, setFormData] = useState<BookingDetails>(INITIAL_DATA);
+
+const updateFields = (fields: Partial<BookingDetails>) => {
+setFormData((prev) => ({ ...prev, ...fields }));    
+}
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 };
 
 const nextStep = () => setStep(prev => prev + 1);
 const prevStep = () => setStep(prev => prev - 1);
 
-const handleSubmit = (e: React.SubmitEvent) => {
-e.preventDefault();
-
-//This will build a mock id and build a final reservation object
-const finalBooking: BookingDetails = {
-    ...formData,
-    id: `bk-${Math.random().toString(36).substring(2, 9)}`,
+const handleFinalSubmit = () => {
+    const finalBooking: BookingDetails = {
+      ...formData,
+      id: `bk-${Math.random().toString(36).substring(2, 9)}`,
 };
+
 
 //Pull available bookings from local storage or create an empty array if none exist
 const availBookings = JSON.parse(localStorage.getItem('restaurant_bookings') || '[]')
@@ -44,100 +49,47 @@ localStorage.setItem('restaurant_bookings', JSON.stringify(availBookings));
 setStep(4);
 }
 
-
-
-const timeSlots: TimeSlot[] = [
-    {time: '18:00', label: '18:00', isAvailable: true},
-    {time: '19:00', label: '19:00', isAvailable: true},
-    {time: '20:00', label: '20:00', isAvailable: true},
-    {time: '21:00', label: '21:00', isAvailable: true},
-    {time: '22:00', label: '22:00', isAvailable: false}  
-];
-
-const seatTypes: SeatType[] = [
-    {seat: 'table', label: 'table', isAvailable: true},
-    {seat: 'counter', label: 'counter', isAvailable: true},
-    {seat: 'group table', label: 'group table', isAvailable: false},
-    {seat: 'window seat', label: 'window seat', isAvailable: false}
-]
+const resetForm = () => {
+setFormData(INITIAL_DATA);
+    setStep(1);
+}
 
     return ( 
         <form onSubmit={handleSubmit}>
+            <h2>Let's get a table.</h2>
         <div className="step-indicator">
             <span className={step >= 1 ? 'active' : ''}>1. Pick a date and table</span>
         <span className={step >= 2 ? 'active' : ''}>2. How can we contact you?</span>
         <span className={step >= 3 ? 'active' : ''}>3. Review your booking</span>
         </div>
+        
             {step === 1 && (
-                <div className="form-control">
-                    <label htmlFor="date">What day will you be coming?</label>
-                    <input type="date" name="date" value={formData.date} onChange={handleInputChange} min={new Date().toISOString().split('T')[0]} required/>
-                    <label htmlFor="time">What time will you be coming?</label>
-                    <select name="time" id="time" value={formData.time} onChange={handleInputChange} required disabled={!formData.date}>
-                        <option>{formData.date ? "Select a time" : "Please tell us what day you are coming first, please."}</option>
-                        {timeSlots.map((slot) => (
-                            <option key={slot.time} value={slot.time} disabled={!slot.isAvailable}>
-                                {slot.label}
-                            </option>
-                        ))}
-                    </select>
-                    <label htmlFor="guests">How many guests are you bringing?</label>
-                    <input type="number" name="guests" value={formData.guests} onChange={handleInputChange} min={0} max={10} />
-                    <label htmlFor="seatType">What kind of seat do you want?</label>
-                    <select name="seatType" id="seatType" value={formData.seat} onChange={handleInputChange} required >
-                        <option>{formData.guests ? "Pick a seat" : "Please tell us how many people you are bringing first."} </option>
-                        {seatTypes.map((type) => (
-                            <option key={type.seat} value={type.seat} disabled={!type.isAvailable}>{type.label}</option>
-                        ))}
-                    </select>
-                    <button type="button" onClick={nextStep} disabled={!formData.date || !formData.time}>Next</button>
-                </div>
+                <Step1Details
+                formData={formData}
+          updateFields={updateFields}
+          onNext={nextStep}
+                />
             )}
             {step === 2 && (
-                <div className="form-control">
-                    <label htmlFor="name">Write your name here:</label>
-                    <input type="text" name="name" required onChange={handleInputChange} />
-                    <label htmlFor="phone">Phone Number:</label>
-                    <input type="text" name="phone" onChange={handleInputChange}/>
-                    <label htmlFor="email">Your email:</label>
-                    <input type="text" name="email" onChange={handleInputChange} />
-                    <button type="button" onClick={prevStep}>Go back</button>
-                    <button type="button" onClick={nextStep}> Confirm your reservation.</button>
-                </div>
+                <Step2Details
+                formData={formData}
+          updateFields={updateFields}
+          onNext={nextStep}
+          onBack={prevStep}
+                />
             )}
             {step === 3 && (
-                <div className="review-booking">
-                    <h3>Review Your Reservation Details</h3>
-            <p>Please make sure everything looks correct before confirming.</p>
-            
-            <div className="review-card">
-              <div className="review-row"><strong>Name:</strong> {formData.name}</div>
-              <div className="review-row"><strong>Email:</strong> {formData.email}</div>
-              <div className="review-row"><strong>Phone:</strong> {formData.phone}</div>
-              <hr />
-              <div className="review-row"><strong>Date:</strong> {formData.date}</div>
-              <div className="review-row"><strong>Time:</strong> {formData.time}</div>
-              <div className="review-row"><strong>Guests:</strong> {formData.guests}</div>
-            </div>
-            <div className="btn-group">
-              <button type="button" onClick={prevStep}>Edit Details</button>
-              {/* This button actually submits the form */}
-              <button type="submit" className="confirm-btn">Confirm & Book Table</button>
-            </div>
-          </div>
+                <Step3Details
+                formData={formData}
+          onConfirm={handleFinalSubmit}
+          onBack={prevStep}
+                />
             )}
             {step === 4 && (
-          <div className="form-step success-step">
-            <h2>🎉 Reservation Confirmed!</h2>
-            <p>We look forward to hosting you, {formData.name}.</p>
-            <button type="button" onClick={() => {
-              // Reset state to book another
-              setFormData({ id: '', name: '', email: '', phone: '', date: '', time: '', guests: 2, seat: '' });
-              setStep(1);
-            }}>
-              Book Another Table
-            </button>
-          </div>
+          <Step4Details
+          formData={formData}
+          resetForm={resetForm}
+          />
         )}
         </form>
      );

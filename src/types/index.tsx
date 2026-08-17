@@ -39,3 +39,8 @@ export interface Step3Props {
     onConfirm: () => void;
     onBack: () => void;
 }
+
+export interface Step4Props {
+    formData: BookingDetails;
+    resetForm: () => void;
+}

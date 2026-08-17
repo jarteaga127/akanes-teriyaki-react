@@ -3,7 +3,7 @@ import type { Step3Props } from "../types";
 const Step3Details: React.FC<Step3Props> = ({formData, onConfirm, onBack}) => {
     return ( 
         <div className="step-container">
-            <h2>Review your reservation details</h2>
+            <h3>Review your reservation details</h3>
             <p>Please make sure everything looks correct before confirming.</p>
             <div className="review-card">
               <div className="review-row"><strong>Name:</strong> {formData.name}</div>

@@ -3,7 +3,7 @@ import type { Step2Props } from "../types";
 const Step2Details: React.FC<Step2Props> = ({formData, updateFields, onNext, onBack}) => {
     return ( 
       <div className="step-container">
-        <h2>How can we contact you?</h2>
+        <h3>How can we contact you?</h3>
         <label htmlFor="name">Write your name here:</label>
                     <input type="text" name="name" value={formData.name} required onChange={e => updateFields({name: e.target.value})} />
                     <label htmlFor="phone">Phone Number:</label>

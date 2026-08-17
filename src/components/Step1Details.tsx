@@ -4,7 +4,7 @@ import { TIME_SLOTS, SEAT_TYPES } from "../data/BookingData";
 const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) => {
     return ( 
         <div className="step-containter">
-            <h2>Let's pick a date and time.</h2>
+            <h3>Let's pick a date and time.</h3>
             <label htmlFor="date">What day will you be coming?</label>
                     <input type="date" name="date" value={formData.date} onChange={e => updateFields({date: e.target.value}) } min={new Date().toISOString().split('T')[0]} required/>
                     <label htmlFor="time">What time will you be coming?</label>
