@@ -3,7 +3,7 @@ import "../styles/nav-bar.css"
 
 const Navbar = () => {
     return ( 
-        <nav>
+        <nav className="sticky top-0 z-50 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
             <div className="site-logo"><header><Link to="/">Akane's Teriyaki</Link></header></div>
             <div className="nav-link-group">
             <ul>
