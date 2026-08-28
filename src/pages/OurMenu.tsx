@@ -16,7 +16,7 @@ const drinks = menuData.filter(item => item.category === 'drinks');
             <h1>Our Menu</h1>
             <article>
                 <h2>Bowls</h2>
-                <div className="menu-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {bowls.map((item: MenuItem) => (
                         <MenuCard key={item.id} item={item}/>
                     ))}
@@ -24,7 +24,7 @@ const drinks = menuData.filter(item => item.category === 'drinks');
             </article>
             <article>
                 <h2>Plates</h2>
-                <div className="menu-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {plates.map((item: MenuItem) => (
                         <MenuCard key={item.id} item={item} />
                     ))}
@@ -33,7 +33,7 @@ const drinks = menuData.filter(item => item.category === 'drinks');
             </article>
             <article>
                 <h2>Sides</h2>
-                <div className="menu-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sides.map((item: MenuItem) => (
                         <MenuCard key={item.id} item={item} />
                     ))}
@@ -42,7 +42,7 @@ const drinks = menuData.filter(item => item.category === 'drinks');
             </article>
             <article>
                 <h2>Desserts</h2>
-                <div className="menu-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {desserts.map((item: MenuItem) => (
                         <MenuCard key={item.id} item={item} />
                     ))}
@@ -51,7 +51,7 @@ const drinks = menuData.filter(item => item.category === 'drinks');
             </article>
             <article>
                 <h2>Drinks</h2>
-                <div className="menu-grid">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {drinks.map((item: MenuItem) => (
                         <MenuCard key={item.id} item={item} />
                     ))}
