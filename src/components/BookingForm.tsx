@@ -56,12 +56,65 @@ setFormData(INITIAL_DATA);
 
     return ( 
         <form onSubmit={handleSubmit}>
-            <h2>Let's get a table.</h2>
-        <div className="step-indicator">
-            <span className={step >= 1 ? 'active' : ''}>1. Pick a date and table</span>
-        <span className={step >= 2 ? 'active' : ''}>2. How can we contact you?</span>
-        <span className={step >= 3 ? 'active' : ''}>3. Review your booking</span>
-        </div>
+        <div className="w-full max-w-2xl mx-auto mb-8 px-2">
+  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-4 bg-[#2a0808]/5 p-3 rounded-md border border-[#2a0808]/15">
+    
+    {/* Step 1 */}
+    <div
+      className={`flex items-center gap-2 px-3 py-2 rounded text-xs sm:text-sm font-semibold transition-all ${
+        step >= 1
+          ? 'bg-[#2a0808] text-white shadow-sm'
+          : 'bg-transparent text-[#2a0808]/40'
+      }`}
+    >
+      <span className={`flex items-center justify-center w-5 h-5 rounded-full text-xs ${
+        step > 1 ? 'bg-red-200 text-[#2a0808]' : step === 1 ? 'bg-white text-[#2a0808]' : 'bg-[#2a0808]/10 text-[#2a0808]/50'
+      }`}>
+        {step > 1 ? '✓' : '1'}
+      </span>
+      <span>Pick a date and table</span>
+    </div>
+
+    {/* Divider Arrow for Desktop */}
+    <span className="hidden sm:inline text-[#2a0808]/30 font-bold text-xs">→</span>
+
+    {/* Step 2 */}
+    <div
+      className={`flex items-center gap-2 px-3 py-2 rounded text-xs sm:text-sm font-semibold transition-all ${
+        step >= 2
+          ? 'bg-[#2a0808] text-white shadow-sm'
+          : 'bg-transparent text-[#2a0808]/40'
+      }`}
+    >
+      <span className={`flex items-center justify-center w-5 h-5 rounded-full text-xs ${
+        step > 2 ? 'bg-red-200 text-[#2a0808]' : step === 2 ? 'bg-white text-[#2a0808]' : 'bg-[#2a0808]/10 text-[#2a0808]/50'
+      }`}>
+        {step > 2 ? '✓' : '2'}
+      </span>
+      <span>How can we contact you?</span>
+    </div>
+
+    {/* Divider Arrow for Desktop */}
+    <span className="hidden sm:inline text-[#2a0808]/30 font-bold text-xs">→</span>
+
+    {/* Step 3 */}
+    <div
+      className={`flex items-center gap-2 px-3 py-2 rounded text-xs sm:text-sm font-semibold transition-all ${
+        step >= 3
+          ? 'bg-[#2a0808] text-white shadow-sm'
+          : 'bg-transparent text-[#2a0808]/40'
+      }`}
+    >
+      <span className={`flex items-center justify-center w-5 h-5 rounded-full text-xs ${
+        step === 3 ? 'bg-white text-[#2a0808]' : 'bg-[#2a0808]/10 text-[#2a0808]/50'
+      }`}>
+        3
+      </span>
+      <span>Review your booking</span>
+    </div>
+
+  </div>
+</div>
         
             {step === 1 && (
                 <Step1Details
