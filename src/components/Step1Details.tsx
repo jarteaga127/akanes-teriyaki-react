@@ -5,6 +5,8 @@ const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) =>
     return ( 
         <div className="flex flex-col">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2a0808] border-l-4 border-[#2a0808] pl-3 tracking-wide">Let's pick a date and time.</h2>
+            <div className="space-y-4">
+            <div className="flex flex-col space-y-1.5">
             <label htmlFor="date" className="text-sm font-bold text-[#2a0808]">What day will you be coming?</label>
                     <input type="date" 
                     name="date" 
@@ -27,7 +29,9 @@ const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) =>
                             </option>
                         ))}
                     </select>
-                    <label htmlFor="guests" className="text-sm font-bold text-[#2a0808]">How many guests are you bringing?</label>
+                    </div>
+                    <div className="flex flex-col space-y-1.5">
+                    <label htmlFor="guests" className="text-sm font-bold text-[#2a0808]">How many are in your party?</label>
                     <input type="number" 
                     name="guests" 
                     id="guests"
@@ -38,6 +42,8 @@ const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) =>
                     required
                     disabled={!formData.time}
                     className="w-full bg-white text-[#2a0808] border border-[#2a0808]/30 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2a0808] focus:border-transparent transition-all"/>
+                   </div> 
+                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="seatType" className="text-sm font-bold text-[#2a0808]">What kind of seat do you want?</label>
                     <select 
                     name="seatType" 
@@ -52,7 +58,11 @@ const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) =>
                             <option key={type.seat} value={type.seat} disabled={!type.isAvailable}>{type.label}</option>
                         ))}
                     </select>
-                    <button type="button" onClick={onNext} disabled={!formData.date || !formData.time} className="w-full sm:w-auto bg-[#2a0808] text-white hover:bg-[#3d0c0c] disabled:bg-[#2a0808]/30 disabled:cursor-not-allowed px-8 py-2.5 rounded text-sm font-medium transition-colors shadow-sm">Next</button>
+                    </div>
+                    <div className="pt-4 flex justify-end">
+                    <button type="button" onClick={onNext} disabled={!formData.date || !formData.time} className="w-full cursor-pointer sm:w-auto bg-[#2a0808] text-white hover:bg-[#3d0c0c] disabled:bg-[#2a0808]/30 disabled:cursor-not-allowed px-8 py-2.5 rounded text-sm font-medium transition-colors shadow-sm">Next</button>
+        </div >
+        </div>
         </div>
      );
 }
