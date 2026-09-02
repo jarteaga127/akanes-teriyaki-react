@@ -18,7 +18,7 @@ const HeroSec = () => {
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 pt-24 flex flex-col items-end text-right">
                 <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-[#2a0808] tracking-tight leading-[1.05] max-w-2xl">Welcome to Akane's Teriyaki Grill</h1>
                 
-                    <Link to="/our-menu" className="border-red-800 bg-red-800 px-4 py-3 rounded-md text-white hover:bg-red-900">Check out our menu.</Link>
+                    <Link to="/our-menu" className="w-full md:w-auto border-red-800 bg-red-800 text-center px-4 py-3 rounded-md text-white hover:bg-red-900 mt-3">Check out our menu.</Link>
                 
             </div>
         </section>

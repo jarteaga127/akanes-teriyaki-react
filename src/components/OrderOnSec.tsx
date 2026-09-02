@@ -8,7 +8,7 @@ const OrderOnSec = () => {
     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2a0808] tracking-tight leading-tight">Order online</h2>
     <p className="text-base sm:text-lg text-[#2a0808]/80 max-w-md">Feeling too lazy to go out? We'll bring our food to your door.</p>
     
-     <Link to="/" className="inline-block w-full text-center border border-[#2a0808] text-[#2a0808] hover:bg-[#2a0808] hover:text-white px-6 py-2.5 text-sm sm:text-base font-medium transition-colors rounded-sm shadow-sm">Order online now.</Link>    
+     <Link to="/" className="inline-block w-full md:w-auto text-center border border-[#2a0808] text-[#2a0808] hover:bg-[#2a0808] hover:text-white px-6 py-2.5 text-sm sm:text-base font-medium transition-colors rounded-sm shadow-sm">Order online now.</Link>    
 </div>
         </section>
      );
