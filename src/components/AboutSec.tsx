@@ -11,7 +11,7 @@ const AboutSec = () => {
     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2a0808] tracking-tight leading-tight">About us</h2>
     <p className="text-base sm:text-lg text-[#2a0808]/80 max-w-md">Born and raised in Southern California, we bring Teriyaki back to its place of origin: Tokyo, Japan. We specialize in Teriyaki Bowls, Burgers and more</p>
     
-        <Link to="/about-us" className="inline-block w-full md:w-auto text-center border border-[#2a0808] text-[#2a0808] hover:bg-[#2a0808] hover:text-white px-6 py-2.5 text-sm sm:text-base font-medium transition-colors rounded-sm shadow-sm">Read about our story here.</Link>
+        <Link to="/about-us" className="w-full md:w-auto bg-red-800 text-center px-6 py-3 rounded-md text-white hover:bg-red-900 transition mt-6 font-medium shadow-lg">Read about our story here.</Link>
         
 </div>
         </section>

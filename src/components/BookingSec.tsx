@@ -11,7 +11,7 @@ const BookingSec = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2a0808] tracking-tight leading-tight">Book a table with us.</h2>
                 <p className="text-base sm:text-lg text-[#2a0808]/80 max-w-md">Plan on eating out tonight? Book a table with us now.</p>
                 
-                <Link to="/book-a-table" className="inline-block w-full md:w-auto text-center border border-[#2a0808] text-[#2a0808] hover:bg-[#2a0808] hover:text-white px-6 py-2.5 text-sm sm:text-base font-medium transition-colors rounded-sm shadow-sm">Book your table now</Link>
+                <Link to="/book-a-table" className="w-full md:w-auto bg-red-800 text-center px-6 py-3 rounded-md text-white hover:bg-red-900 transition mt-6 font-medium shadow-lg">Book your table now</Link>
             </div>
         </section>
      );
