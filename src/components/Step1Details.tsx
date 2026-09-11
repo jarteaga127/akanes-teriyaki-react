@@ -10,6 +10,7 @@ const Step1Details: React.FC<Step1Props> = ({formData, updateFields, onNext}) =>
             <label htmlFor="date" className="text-sm font-bold text-[#2a0808]">What day will you be coming?</label>
                     <input type="date" 
                     name="date" 
+                    id="date"
                     value={formData.date} 
                     onChange={e => updateFields({date: e.target.value}) } 
                     min={new Date().toISOString().split('T')[0]} 
