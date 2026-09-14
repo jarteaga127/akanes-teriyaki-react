@@ -8,6 +8,7 @@ const Step2Details: React.FC<Step2Props> = ({formData, updateFields, onNext, onB
                     <input 
                     type="text" 
                     name="name" 
+                    id="name"
                     value={formData.name} 
                     placeholder="Joseph Josephson"
                     required 
@@ -17,6 +18,7 @@ const Step2Details: React.FC<Step2Props> = ({formData, updateFields, onNext, onB
                     <input 
                     type="text" 
                     name="phone" 
+                    id="phone"
                     value={formData.phone} 
                     onChange={e => updateFields({phone: e.target.value})}
                     placeholder="18006667734"
@@ -26,6 +28,7 @@ const Step2Details: React.FC<Step2Props> = ({formData, updateFields, onNext, onB
                     <input 
                     type="text" 
                     name="email" 
+                    id="email"
                     value={formData.email} 
                     onChange={e => updateFields({email: e.target.value})} 
                     placeholder="joseph@kurumimail.com"
