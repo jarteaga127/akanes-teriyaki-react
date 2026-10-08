@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import {
+  FaXTwitter, FaFacebookF, FaInstagram, FaPinterestP, FaYoutube,} from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -52,19 +54,38 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="https://x.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-red-200 transition-colors">X / Twitter</a>
+              <a href="https://x.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-red-200 transition-colors"><FaXTwitter className="w-4 h-4" />
+                <span>X / Twitter</span></a>
             </li>
             <li>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-red-200 transition-colors">Facebook</a>
+              <a href="https://facebook.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-red-200 transition-colors"><FaFacebookF className="w-4 h-4" />
+                <span>Facebook</span></a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-red-200 transition-colors">Instagram</a>
+              <a href="https://instagram.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-red-200 transition-colors"><FaInstagram className="w-4 h-4" />
+                <span>Instagram</span></a>
             </li>
             <li>
-              <a href="https://pinterest.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-red-200 transition-colors">Pinterest</a>
+              <a href="https://pinterest.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-red-200 transition-colors"><FaPinterestP className="w-4 h-4" />
+                <span>Pinterest</span></a>
             </li>
             <li>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-red-200 transition-colors">YouTube</a>
+              <a href="https://youtube.com" 
+              target="_blank" rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-red-200 transition-colors"><FaYoutube className="w-4 h-4" />
+                <span>YouTube</span></a>
             </li>
           </ul>
         </div>

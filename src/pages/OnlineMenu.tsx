@@ -43,7 +43,7 @@ const OnlineMenu: React.FC = () => {
                 className={`px-4 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-colors ${
                   activeCategory === cat.key
                     ? 'bg-red-800 text-white shadow-sm'
-                    : 'bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                    : 'bg-white cursor-pointer dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                 }`}
               >
                 {cat.label}

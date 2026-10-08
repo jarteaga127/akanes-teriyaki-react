@@ -3,7 +3,7 @@ import Restaurant from "../assets/pexels-saba-foods-2148476407-30119014.jpg"
 
 const BookingSec = () => {
     return ( 
-        <section className="w-full flex flex-col md:flex-row bg-[#e3cdcd] py-16 md:py-24 px-6 border-t border-[#cbb3b3]">
+        <section className="w-full flex flex-col md:flex-row bg-zinc-50 py-16 md:py-24 px-6 border-t border-[#cbb3b3]">
             <div className="w-full md:w-1/2 h-64 sm:h-80 md:h-96 bg-[#2a0808]/10 rounded-lg border border-[#2a0808]/20 overflow-hidden flex items-center justify-center">
             <img src={Restaurant} alt="The inside of a restaurant" />
             </div>

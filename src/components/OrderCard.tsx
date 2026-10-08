@@ -32,7 +32,7 @@ const OrderCard: React.FC<{item: MenuItem}> = ({item}) => {
       <div className="p-5 pt-0">
         <button
           type="button"
-          className="w-full py-2.5 bg-red-800 hover:bg-red-900 text-white font-medium text-sm rounded-lg transition"
+          className="w-full py-2.5 cursor-pointer bg-red-800 hover:bg-red-900 text-white font-medium text-sm rounded-lg transition"
         >
           Add to Order
         </button>
