@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
           <Link to="/our-menu" className="text-sm font-medium text-white hover:text-red-100 transition">Check out our menu</Link>
           <Link to="/book-a-table" className="text-sm font-medium text-white hover:text-red-100 transition">Book a table with us</Link>
           <Link to="/order-online" className="text-sm font-medium text-white hover:text-red-100 transition">Order online</Link>
-          <Link to="/" className="text-sm font-medium text-white hover:text-red-100 transition">Contact us</Link>
+          <Link to="/contact-us" className="text-sm font-medium text-white hover:text-red-100 transition">Contact us</Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
             Order online
           </Link>
           <Link
-            to="/"
+            to="/contact-us"
             className="w-full px-4 py-3 text-base text-white hover:bg-red-700 transition-colors block"
             onClick={() => setIsOpen(false)}
           >

@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage"
 import OurMenu from "./pages/OurMenu"
 import OnlineMenu from "./pages/OnlineMenu"
 import { Routes, Route } from "react-router-dom"
+import ContactUs from "./pages/ContactUs"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/book-a-table" element={<BookingPage/>} />
         <Route path="about-us" element={<AboutUs/>} />
         <Route path="order-online" element={<OnlineMenu/>} />
+        <Route path="contact-us" element={<ContactUs/>} />
       </Routes>
       </main>
       <Footer/>
