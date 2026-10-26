@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { menuData } from "../data/MenuData";
 import OrderCard from "../components/OrderCard";
+import { Link } from "react-router-dom";
 
 type Category = 'all' | 'bowls' | 'plates' | 'sides' | 'desserts' | 'drinks';
 
@@ -77,6 +78,7 @@ const OnlineMenu: React.FC = () => {
         )}
 
       </div>
+      <Link to="/" className="inline-block text-white bg-red-800 hover:bg-red-900 px-6 py-2.5 text-sm font-medium transition-colors rounded-sm shadow-sm">Back to home</Link>
     </div>
   );
 };
