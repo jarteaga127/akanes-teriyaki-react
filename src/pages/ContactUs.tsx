@@ -59,26 +59,7 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              {/* Hours of Operation */}
-              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-3">
-                  Opening Hours
-                </h3>
-                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                  <li className="flex justify-between">
-                    <span>Mon – Thu</span>
-                    <span className="font-medium text-zinc-900 dark:text-zinc-200">11:00 AM – 9:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Fri – Sat</span>
-                    <span className="font-medium text-zinc-900 dark:text-zinc-200">11:00 AM – 10:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="font-medium text-zinc-900 dark:text-zinc-200">12:00 PM – 8:30 PM</span>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
 
             {/* Quick Actions / Note Card */}
@@ -101,7 +82,7 @@ const ContactUs = () => {
           <div className="w-full h-72 bg-zinc-200 dark:bg-zinc-800 relative flex items-center justify-center">
             {/* Embedded Google Maps iframe can replace this container */}
             <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium">
-              [ Embedded Interactive Map - Seattle Downtown Area ]
+              [ Embedded Interactive Map - Tokyo Area ]
             </p>
           </div>
         </div>
